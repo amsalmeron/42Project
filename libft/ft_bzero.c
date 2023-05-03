@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asalmero <asalmero@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 11:49:52 by asalmero          #+#    #+#             */
-/*   Updated: 2023/05/03 11:50:08 by asalmero         ###   ########.fr       */
+/*   Created: 2023/05/03 10:45:49 by asalmero          #+#    #+#             */
+/*   Updated: 2023/05/03 13:06:41 by asalmero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	while (i++ < n)
+	{
+		s = 0;
+		s++;
+	}
 }

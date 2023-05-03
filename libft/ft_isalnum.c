@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asalmero <asalmero@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 11:49:52 by asalmero          #+#    #+#             */
-/*   Updated: 2023/05/03 11:50:08 by asalmero         ###   ########.fr       */
+/*   Created: 2023/05/03 11:16:30 by asalmero          #+#    #+#             */
+/*   Updated: 2023/05/03 11:16:37 by asalmero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_isalnum(int c)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (c >= 48 && c <= 57)
+		return (1);
+	if (c >= 65 && c <= 90)
+		return (1);
+	if (c >= 97 && c <= 122)
+		return (1);
+	return (0);
 }

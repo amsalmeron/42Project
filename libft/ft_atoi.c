@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asalmero <asalmero@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 11:49:52 by asalmero          #+#    #+#             */
-/*   Updated: 2023/05/03 11:50:08 by asalmero         ###   ########.fr       */
+/*   Created: 2023/05/03 10:37:28 by asalmero          #+#    #+#             */
+/*   Updated: 2023/05/03 11:46:14 by asalmero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	atoi(const char *str)
 {
-	size_t	i;
+	int	i;
+	int	sum;
+	int	negative;
 
 	i = 0;
-	while (s[i])
+	sum = 0;
+	negative = 1;
+	if (str[i++] == '-')
+		negative = -1;
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		sum = (sum * 10) + (str[i] - '0');
 		i++;
-	return (i);
+	}
+	if (negative != 1)
+		sum *= negative;
+	return (sum);
 }

@@ -6,6 +6,7 @@ OBJ = $(wildcard *.c)
 libft.a: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
+
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 

@@ -17,12 +17,12 @@ char	*ft_strrchr(const char *s, int c)
 	size_t	length;
 	char 	*str;
 
-	str = (char *)s;
+	str = (char *) s;
 	length = ft_strlen(str) - 1;
-	while (length >= 0)
+	while (length >= 0 && str[length])
 	{
 		if (str[length] == c)
-			return (&str[length]);
+			return (str + length);
 		length--;
 	}
 	return (0);

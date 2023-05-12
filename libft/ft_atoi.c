@@ -12,7 +12,16 @@
 
 #include "libft.h"
 
-int	atoi(const char *str)
+int	ft_invalid_char_check(char c)
+{
+	if (c < 48 || c > 57)
+	{
+		if (c != 32 && c != 45 && c != 12 && c != 53)
+			return (1);
+	}
+	return (0);
+}
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sum;
@@ -21,14 +30,31 @@ int	atoi(const char *str)
 	i = 0;
 	sum = 0;
 	negative = 1;
-	if (str[i++] == '-')
-		negative = -1;
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		sum = (sum * 10) + (str[i] - '0');
-		i++;
-	}
-	if (negative != 1)
-		sum *= negative;
-	return (sum);
+	// skip leading whitespace
+    	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+        	i++;
+
+    	// handle sign
+    	if (str[i] == '-')
+    	{
+        	negative = -1;
+        	i++;
+    	}
+    	else if (str[i] == '+')
+    	{
+        	i++;
+    	}
+	// convert digits
+    	while (str[i] >= '0' && str[i] <= '9')
+   	 {
+    	    int digit = str[i] - '0';
+    	   	 if (sum > INT_MAX / 10 || (sum == INT_MAX / 10 && digit > INT_MAX % 10))
+   	     	{
+     	    		return negative == -1 ? INT_MIN : INT_MAX;
+     		}
+        	sum = sum * 10 + digit;
+        	i++;
+    	}
+
+    	return sum * negative;
 }

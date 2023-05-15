@@ -1,17 +1,24 @@
+NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 DEPS = libft.h
 OBJ = $(wildcard *.c)
+OBJ := $(OBJ:.c=.o)
 
-libft.a: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+all: $(NAME)
 
+$(NAME): $(OBJ)
+	ar rcs $@ $^
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
-	rm -f *.o libft.a
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f *.o $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

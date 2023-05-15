@@ -6,7 +6,7 @@
 /*   By: asalmero <asalmero@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:09:50 by asalmero          #+#    #+#             */
-/*   Updated: 2023/05/03 14:04:32 by asalmero         ###   ########.fr       */
+/*   Updated: 2023/05/15 14:51:25 by asalmero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	size_t	length;
-	char 	*str;
+	char	*str;
 
-	str = (char *) s;
-	length = ft_strlen(str) - 1;
-	while (length >= 0 && str[length])
+	str = (char *)s;
+	length = ft_strlen(str);
+	if (c == '\0')
+		return (str + length);
+	while (length > 0)
 	{
+		length--;
 		if (str[length] == c)
 			return (str + length);
-		length--;
 	}
-	return (0);
+	if (c == '\0')
+        return (str + length);
+	return (NULL);
 }

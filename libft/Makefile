@@ -4,6 +4,8 @@ CFLAGS = -Wall -Werror -Wextra
 DEPS = libft.h
 OBJ = $(wildcard *.c)
 OBJ := $(OBJ:.c=.o)
+BONUS = $(wildcard ft_lst*.c)
+BONUS := $(BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -14,11 +16,15 @@ $(NAME): $(OBJ)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(BONUS)
 
 fclean: clean
-	rm -f *.o $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus: $(BONUS) $(OBJ)
+	ar rcs $(NAME) $^
+
+
+.PHONY: all clean fclean re bonus

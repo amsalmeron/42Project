@@ -6,7 +6,7 @@
 /*   By: asalmero <asalmero@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:54:50 by asalmero          #+#    #+#             */
-/*   Updated: 2023/05/15 14:43:06 by asalmero         ###   ########.fr       */
+/*   Updated: 2023/05/16 22:38:10 by asalmero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	src_len;
-	
+
 	src_len = ft_strlen(src);
 	if (dstsize > 0)
 	{
